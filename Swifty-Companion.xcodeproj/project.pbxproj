@@ -14,6 +14,11 @@
 		BB9147E62219F96D00C6BD56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9147E42219F96D00C6BD56 /* LaunchScreen.storyboard */; };
 		BB9147F12219F96D00C6BD56 /* Swifty_CompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9147F02219F96D00C6BD56 /* Swifty_CompanionTests.swift */; };
 		BB9147FC2219F96D00C6BD56 /* Swifty_CompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9147FB2219F96D00C6BD56 /* Swifty_CompanionUITests.swift */; };
+		BB91480C221A2C8200C6BD56 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91480B221A2C8200C6BD56 /* DetailViewController.swift */; };
+		BB91480E221A49D300C6BD56 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB91480D221A49D300C6BD56 /* Session.swift */; };
+		BBBC7B48221B6003009A861B /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC7B47221B6003009A861B /* Endpoints.swift */; };
+		BBBC7B4A221B6BCC009A861B /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC7B49221B6BCC009A861B /* ErrorViewController.swift */; };
+		BBBC7B4C221B7849009A861B /* ParseJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBBC7B4B221B7849009A861B /* ParseJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +52,11 @@
 		BB9147F72219F96D00C6BD56 /* Swifty-CompanionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Swifty-CompanionUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9147FB2219F96D00C6BD56 /* Swifty_CompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swifty_CompanionUITests.swift; sourceTree = "<group>"; };
 		BB9147FD2219F96D00C6BD56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB91480B221A2C8200C6BD56 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../DetailViewController.swift; sourceTree = "<group>"; };
+		BB91480D221A49D300C6BD56 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		BBBC7B47221B6003009A861B /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		BBBC7B49221B6BCC009A861B /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		BBBC7B4B221B7849009A861B /* ParseJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +107,17 @@
 		BB9147DA2219F96A00C6BD56 /* Swifty-Companion */ = {
 			isa = PBXGroup;
 			children = (
+				BB91480B221A2C8200C6BD56 /* DetailViewController.swift */,
 				BB9147DB2219F96A00C6BD56 /* AppDelegate.swift */,
 				BB9147DD2219F96A00C6BD56 /* ViewController.swift */,
 				BB9147DF2219F96A00C6BD56 /* Main.storyboard */,
 				BB9147E22219F96D00C6BD56 /* Assets.xcassets */,
 				BB9147E42219F96D00C6BD56 /* LaunchScreen.storyboard */,
 				BB9147E72219F96D00C6BD56 /* Info.plist */,
+				BB91480D221A49D300C6BD56 /* Session.swift */,
+				BBBC7B47221B6003009A861B /* Endpoints.swift */,
+				BBBC7B49221B6BCC009A861B /* ErrorViewController.swift */,
+				BBBC7B4B221B7849009A861B /* ParseJSON.swift */,
 			);
 			path = "Swifty-Companion";
 			sourceTree = "<group>";
@@ -256,8 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB91480E221A49D300C6BD56 /* Session.swift in Sources */,
+				BBBC7B4A221B6BCC009A861B /* ErrorViewController.swift in Sources */,
+				BB91480C221A2C8200C6BD56 /* DetailViewController.swift in Sources */,
 				BB9147DE2219F96A00C6BD56 /* ViewController.swift in Sources */,
+				BBBC7B4C221B7849009A861B /* ParseJSON.swift in Sources */,
 				BB9147DC2219F96A00C6BD56 /* AppDelegate.swift in Sources */,
+				BBBC7B48221B6003009A861B /* Endpoints.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
