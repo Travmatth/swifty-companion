@@ -246,3 +246,15 @@ func parseUserData(data: Data) -> User? {
         return nil
     }
 }
+
+func parseLevel(model: User?) -> String {
+    var level = "Unavailable"
+    
+    for user in (model?.cursusUsers)! {
+        if user.cursus?.name == "42" && user.level != nil {
+            level = "Level: \(String(describing: user.level!))"
+            break
+        }
+    }
+    return level
+}

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Session {
     var token: String?
@@ -43,11 +44,12 @@ class Session {
         dispatch.wait()
     }
     
-    func getUser(user: String, callback: @escaping (_ user: User) -> Void) {
+    func getUser(user: String, callback: @escaping (_ user: User?, _ image: UIImage?) -> Void) {
         dispatch.enter()
         guard token != nil, let req = endpoint.user(user: user, token: token!) else {
             print("Error: could not create user url")
             dispatch.leave()
+            callback(nil, nil)
             return
         }
         URLSession.shared.dataTask(with: req) { (data, res, err) in
@@ -56,8 +58,19 @@ class Session {
                 self.dispatch.leave()
                 return
             }
-            if let user = parseUserData(data: tokenRes) {
-                callback(user)
+            if let user = parseUserData(data: tokenRes), user.imageUrl != nil {
+                let profileImageUrl = user.imageUrl!
+                self.dispatch.enter()
+                URLSession.shared.dataTask(with: profileImageUrl) {
+                    (data, res, err) in
+                    guard err == nil, data != nil else {
+                        print("Error downloading profile image")
+                        self.dispatch.leave()
+                        return
+                    }
+                    callback(user, UIImage(data: data!))
+                    self.dispatch.leave()
+                }.resume()
             }
             self.dispatch.leave()
         }.resume()
