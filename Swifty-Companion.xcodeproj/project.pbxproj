@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB225004221DFF5400B83300 /* SkillsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB225003221DFF5400B83300 /* SkillsTableViewCell.swift */; };
+		BB225006221E001E00B83300 /* ProjectsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB225005221E001E00B83300 /* ProjectsTableViewCell.swift */; };
 		BB9147DC2219F96A00C6BD56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9147DB2219F96A00C6BD56 /* AppDelegate.swift */; };
 		BB9147DE2219F96A00C6BD56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9147DD2219F96A00C6BD56 /* ViewController.swift */; };
 		BB9147E12219F96A00C6BD56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9147DF2219F96A00C6BD56 /* Main.storyboard */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB225003221DFF5400B83300 /* SkillsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsTableViewCell.swift; sourceTree = "<group>"; };
+		BB225005221E001E00B83300 /* ProjectsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsTableViewCell.swift; sourceTree = "<group>"; };
 		BB9147D82219F96A00C6BD56 /* Swifty-Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swifty-Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9147DB2219F96A00C6BD56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB9147DD2219F96A00C6BD56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 		BB9147DA2219F96A00C6BD56 /* Swifty-Companion */ = {
 			isa = PBXGroup;
 			children = (
+				BB225003221DFF5400B83300 /* SkillsTableViewCell.swift */,
+				BB225005221E001E00B83300 /* ProjectsTableViewCell.swift */,
 				BB91480B221A2C8200C6BD56 /* DetailViewController.swift */,
 				BB9147DB2219F96A00C6BD56 /* AppDelegate.swift */,
 				BB9147DD2219F96A00C6BD56 /* ViewController.swift */,
@@ -272,6 +278,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB91480E221A49D300C6BD56 /* Session.swift in Sources */,
+				BB225006221E001E00B83300 /* ProjectsTableViewCell.swift in Sources */,
+				BB225004221DFF5400B83300 /* SkillsTableViewCell.swift in Sources */,
 				BBBC7B4A221B6BCC009A861B /* ErrorViewController.swift in Sources */,
 				BB91480C221A2C8200C6BD56 /* DetailViewController.swift in Sources */,
 				BB9147DE2219F96A00C6BD56 /* ViewController.swift in Sources */,

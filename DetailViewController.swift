@@ -47,14 +47,14 @@ class DetailViewController: UIViewController {
             ? "Email: \(model!.email!)" : "Unavaible";
         walletLabel.text = model?.wallet != nil
             ? "Wallet: \(model!.wallet!)" : "Unavaible";
-        levelLabel.sizeToFit()
-        loginLabel.sizeToFit()
-        mobileLabel.sizeToFit()
-        pointsLabel.sizeToFit()
-        emailLabel.sizeToFit()
-        walletLabel.sizeToFit()
-        emailLabel.center.x = self.view.center.x
-        mobileLabel.center.x = self.view.center.x
+        //levelLabel.sizeToFit()
+        //loginLabel.sizeToFit()
+        //mobileLabel.sizeToFit()
+        //pointsLabel.sizeToFit()
+        //emailLabel.sizeToFit()
+        //walletLabel.sizeToFit()
+        //emailLabel.center.x = self.view.center.x
+        //mobileLabel.center.x = self.view.center.x
     }
     
     func configureProfileImage() {
@@ -84,14 +84,16 @@ extension DetailViewController: UITableViewDataSource {
         if tableView == skillsTableView {
             for cursus in model!.cursusUsers! {
                 if cursus.cursus!.name! == "42" {
-                    let cell = skillsTableView.dequeueReusableCell(withIdentifier: "UITableViewCell") as! UITableViewCell
-                    cell.textLabel?.text = cursus.skills![indexPath.row].name!
+                    let cell = skillsTableView.dequeueReusableCell(withIdentifier: "skillsTableViewCell") as! SkillsTableViewCell
+                    cell.skillNameLabel.text = cursus.skills![indexPath.row].name!
+                    cell.skillNameLabel.sizeToFit()
                     return cell
                 }
             }
         }
-        let cell = skillsTableView.dequeueReusableCell(withIdentifier: "UITableViewCell") as! UITableViewCell
-        cell.textLabel?.text = model?.projectsUsers![indexPath.row].project!.name!
+        let cell = projectsTableView.dequeueReusableCell(withIdentifier: "projectsTableViewCell") as! ProjectsTableViewCell
+        cell.projectNameLabel.text = model?.projectsUsers![indexPath.row].project!.name!
+        cell.projectNameLabel.sizeToFit()
         return cell
     }
 }

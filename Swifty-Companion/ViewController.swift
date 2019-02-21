@@ -34,11 +34,6 @@ class ViewController: UIViewController {
             let vc = storyboard.instantiateViewController(withIdentifier: "DetailView") as! DetailViewController
             session.getUser(user: userData) { (model, image) in
                 vc.model = model
-                if vc.profileImageView == nil {
-                    print("imageview nil")
-                } else {
-                    print("data nil")
-                }
                 vc.profileImage = image
             }
             present(vc, animated: true, completion: nil)
