@@ -26,11 +26,13 @@ class Endpoints {
     }
     
     func user(user: String, token: String) -> URLRequest? {
-        guard let url = URL(string: userUrl + user) else { return nil }
+        let urlStr = userUrl + user
+        guard let url = URL(string: urlStr) else { return nil }
         let bearer = "Bearer " + token
         var req = URLRequest(url: url)
         req.httpMethod = "GET"
         req.setValue(bearer, forHTTPHeaderField: "Authorization")
+        print("requesting: \(urlStr)")
         return req
     }
 }

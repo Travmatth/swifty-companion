@@ -21,6 +21,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var skillsTableView: UITableView!
     @IBOutlet weak var projectsTableView: UITableView!
     
+    @IBAction func backButton(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidLoad()
         configureLabels()
@@ -84,16 +88,22 @@ extension DetailViewController: UITableViewDataSource {
         if tableView == skillsTableView {
             for cursus in model!.cursusUsers! {
                 if cursus.cursus!.name! == "42" {
+                    let level = String(describing: (cursus.skills![indexPath.row].level)!)
                     let cell = skillsTableView.dequeueReusableCell(withIdentifier: "skillsTableViewCell") as! SkillsTableViewCell
                     cell.skillNameLabel.text = cursus.skills![indexPath.row].name!
+                    cell.skillLevelLabel.text = level
                     cell.skillNameLabel.sizeToFit()
+                    cell.skillLevelLabel.sizeToFit()
                     return cell
                 }
             }
         }
+        let score = String(describing: (model?.projectsUsers![indexPath.row].finalMark) ?? 0)
         let cell = projectsTableView.dequeueReusableCell(withIdentifier: "projectsTableViewCell") as! ProjectsTableViewCell
         cell.projectNameLabel.text = model?.projectsUsers![indexPath.row].project!.name!
+        cell.projectScoreLabel.text = score
         cell.projectNameLabel.sizeToFit()
+        cell.projectScoreLabel.sizeToFit()
         return cell
     }
 }

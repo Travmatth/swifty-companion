@@ -96,143 +96,24 @@ struct ProjectsJSON: Decodable {
   }
 }
 
-struct AchievementsJSON: Decodable {
-  let id: Int?
-  let name: String?
-  let description: String?
-  let tier: String?
-  let kind: String?
-  let visible: Bool?
-  let image: String?
-  let nbrOfSuccess: Int?
-  let usersUrl: URL?
-  private enum CodingKeys: String, CodingKey {
-    case id
-    case name
-    case description
-    case tier
-    case kind
-    case visible
-    case image
-    case nbrOfSuccess = "nbr_of_success"
-    case usersUrl = "users_url"
-  }
-}
-
-struct LanguageJSON: Decodable {
-  let id: Int?
-  let name: String?
-  let identifier: String?
-  let createdAt: String?
-  let updatedAt: String?
-  private enum CodingKeys: String, CodingKey {
-    case id
-    case name
-    case identifier
-    case createdAt = "created_at"
-    case updatedAt = "updated_at"
-  }
-}
-
-struct CampusJSON: Decodable {
-  let id: Int?
-  let name: String?
-  let timeZone: String?
-  let language: LanguageJSON?
-  let usersCount: Int?
-  let vogsphereId: Int?
-  let country: String?
-  let address: String?
-  let zip: String?
-  let city: String?
-  let website: URL?
-  let facebook: URL?
-  let twitter: URL?
-  private enum CodingKeys: String, CodingKey {
-    case id
-    case name
-    case timeZone = "time_zone"
-    case language
-    case usersCount = "users_count"
-    case vogsphereId = "vogsphere_id"
-    case country
-    case address
-    case zip
-    case city
-    case website
-    case facebook
-    case twitter
-  }
-}
-struct CampusUsersJSON: Decodable {
-  let id: Int?
-  let userId: Int?
-  let campusId: Int?
-  let isPrimary: Bool?
-  private enum CodingKeys: String, CodingKey {
-    case id
-    case userId = "user_id"
-    case campusId = "campus_id"
-    case isPrimary = "is_primary"
-  }
-}
-
 struct User: Decodable {
-  let id: Int?
   let email: String?
   let login: String?
-  let firstName: String?
-  let lastName: String?
-  let url: URL?
   let phone: String?
-  let displayname: String?
   let imageUrl: URL?
-  let staff: Bool?
   let correctionPoint: Int?
-  let poolMonth: String?
-  let poolYear: String?
-  let location: String?
   let wallet: Int?
-  let groups: [String]?
   let cursusUsers: [CursusUsersJSON]?
   let projectsUsers: [ProjectsJSON]?
-  let achievements: [AchievementsJSON]?
-  let titles: [String]?
-  let titlesUsers: [String]?
-  let partnerships: [String]?
-  let patroned: [String]?
-  let patroning: [String]?
-  let expertisesUsers: [String]?
-  let campus: [CampusJSON]?
-  let campusUsers: [CampusUsersJSON]?
   private enum CodingKeys: String, CodingKey {
-	  case id
 	  case email
 	  case login
-	  case firstName = "first_name"
-	  case lastName = "last_name"
-	  case url
 	  case phone
-	  case displayname
 	  case imageUrl = "image_url"
-	  case staff = "staff?"
 	  case correctionPoint = "correction_point"
-	  case poolMonth = "pool_month"
-	  case poolYear = "pool_year"
-	  case location
 	  case wallet
-	  case groups
 	  case cursusUsers = "cursus_users"
 	  case projectsUsers = "projects_users"
-	  case achievements
-	  case titles
-	  case titlesUsers = "titles_users"
-	  case partnerships
-	  case patroned
-	  case patroning
-	  case expertisesUsers = "expertises_users"
-	  case campus
-	  case campusUsers = "campus_users"
   }
 }
 
@@ -242,15 +123,14 @@ func parseUserData(data: Data) -> User? {
         let user = try decoder.decode(User.self, from: data)
         return user
     } catch {
-        print("Error parsing user data json")
+        print("Error parsing user data json: \(error)")
         return nil
     }
 }
 
 func parseLevel(model: User?) -> String {
     var level = "Unavailable"
-    
-    for user in (model?.cursusUsers)! {
+        for user in (model?.cursusUsers)! {
         if user.cursus?.name == "42" && user.level != nil {
             level = "Level: \(String(describing: user.level!))"
             break

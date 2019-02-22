@@ -10,6 +10,7 @@ import UIKit
 
 class ProjectsTableViewCell: UITableViewCell {
     @IBOutlet weak var projectNameLabel: UILabel!
+    @IBOutlet weak var projectScoreLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -9,22 +9,19 @@
 import UIKit
 
 class ErrorViewController: UIViewController {
+    var errorMsg: String = "Error"
+    @IBOutlet weak var errorLabel: UILabel!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBAction func backButton(_ sender: Any) {
+        (self.presentingViewController as! ViewController).errorMsg = nil
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
-    */
-
+    override func viewWillAppear(_ animated: Bool) {
+        errorLabel.text = errorMsg
+        errorLabel.sizeToFit()
+    }
 }

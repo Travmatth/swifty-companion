@@ -44,18 +44,22 @@ class Session {
         dispatch.wait()
     }
     
-    func getUser(user: String, callback: @escaping (_ user: User?, _ image: UIImage?) -> Void) {
+    func getUser(user: String, callback: @escaping (_ user: User?, _ image: UIImage?, _ err: String?) -> Void) {
         dispatch.enter()
         guard token != nil, let req = endpoint.user(user: user, token: token!) else {
-            print("Error: could not create user url")
             dispatch.leave()
-            callback(nil, nil)
+            callback(nil, nil, "Error: could not create user url")
             return
         }
         URLSession.shared.dataTask(with: req) { (data, res, err) in
+            guard (res as! HTTPURLResponse).statusCode != 404 else {
+                    self.dispatch.leave()
+                    callback(nil, nil, "Error: user not found")
+                    return
+            }
             guard err == nil, let tokenRes = data else {
-                print("Error: did not receive data")
                 self.dispatch.leave()
+                callback(nil, nil, "Error: did not receive data")
                 return
             }
             if let user = parseUserData(data: tokenRes), user.imageUrl != nil {
@@ -64,11 +68,11 @@ class Session {
                 URLSession.shared.dataTask(with: profileImageUrl) {
                     (data, res, err) in
                     guard err == nil, data != nil else {
-                        print("Error downloading profile image")
                         self.dispatch.leave()
+                        callback(nil, nil, "Error downloading profile image")
                         return
                     }
-                    callback(user, UIImage(data: data!))
+                    callback(user, UIImage(data: data!), nil)
                     self.dispatch.leave()
                 }.resume()
             }
