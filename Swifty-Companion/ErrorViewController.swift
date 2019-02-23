@@ -23,5 +23,6 @@ class ErrorViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         errorLabel.text = errorMsg
         errorLabel.sizeToFit()
+        errorLabel.center.x = self.view.center.x
     }
 }

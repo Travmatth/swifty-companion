@@ -102,8 +102,8 @@ extension DetailViewController: UITableViewDataSource {
         let cell = projectsTableView.dequeueReusableCell(withIdentifier: "projectsTableViewCell") as! ProjectsTableViewCell
         cell.projectNameLabel.text = model?.projectsUsers![indexPath.row].project!.name!
         cell.projectScoreLabel.text = score
-        cell.projectNameLabel.sizeToFit()
-        cell.projectScoreLabel.sizeToFit()
+        //cell.projectNameLabel.sizeToFit()
+        //cell.projectScoreLabel.sizeToFit()
         return cell
     }
 }

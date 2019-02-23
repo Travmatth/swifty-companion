@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         session.startOAuthFlow()
-        print(session.token!)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -28,7 +27,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func lookupButton(_ sender: Any) {
-        if let userData = loginTextField.text {
+        if let userData = loginTextField.text, !userData.isEmpty {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "DetailView")
             session.getUser(user: userData.trimmingCharacters(in: .whitespacesAndNewlines)) { (model, image, err) in
